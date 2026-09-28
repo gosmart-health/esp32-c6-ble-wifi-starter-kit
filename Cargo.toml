@@ -1,0 +1,25 @@
+[package]
+name = "wireless-config"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+resolver = "2"
+build = "build.rs"
+
+[[bin]]
+name = "wireless-config"
+harness = false
+
+[dependencies]
+esp-idf-svc = { version = "0.53", features = ["critical-section"] }
+log = "0.4"
+
+[build-dependencies]
+embuild = "0.33.5"
+
+[profile.dev]
+debug = true
+opt-level = "z"
+
+[profile.release]
+opt-level = "s"
